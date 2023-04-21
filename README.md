@@ -9,10 +9,10 @@
     Релизованны тесты:
         1) test_add_new_book_add_two_books - Проверка добавления книг.
         2) test_add_new_book_add_same_book_twice - Нельзя добавить одну и ту же книгу дважды.
-        3) test_set_book_rating_book_is_not_in_list - Нельзя выставить рейтинг книге, которой нет в списке.
+        3) test_set_book_rating_book_is_not_exist - Нельзя выставить рейтинг книге, которой нет в списке.
         4) test_set_book_rating_less_than_one - Нельзя выставить рейтинг меньше 1.
         5) test_set_book_rating_more_than_ten - Нельзя выставить рейтинг больше 10.
-        6) test_get_book_rating_book_is_not_in_list - У не добавленной книги нет рейтинга.
+        6) test_get_book_rating_book_is_not_exist - У не добавленной книги нет рейтинга.
         7) test_get_books_with_specific_rating_get_books_with_rating_two - Получение списка книг с рейтингом 2
         8) test_get_books_with_specific_rating_no_book_with_rating_four - Нет книг с рейтингом 4
         9) test_add_book_in_favorites_add_new_book - Добавление книги в избранное.

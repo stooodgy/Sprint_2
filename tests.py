@@ -14,11 +14,11 @@ class TestBooksCollector:
 
         assert len(collector.get_books_rating()) == 1
 
-    def test_set_book_rating_book_not_in_list(self, collector, list_of_test_books):
+    def test_set_book_rating_book_is_not_exist(self, collector, list_of_test_books):
 
         collector.set_book_rating(list_of_test_books[0], 10)
 
-        assert len(collector.get_books_rating()) == 0
+        assert collector.get_book_rating(list_of_test_books[0]) is None
 
     def test_set_book_rating_less_than_one(self, collector, list_of_test_books):
 
@@ -34,9 +34,9 @@ class TestBooksCollector:
 
         assert collector.get_book_rating(list_of_test_books[0]) == 1
 
-    def test_get_book_rating_book_not_in_list(self, collector, list_of_test_books):
+    def test_get_book_rating_book_is_not_exist(self, collector, list_of_test_books):
 
-        assert collector.get_book_rating(list_of_test_books[0]) == None
+        assert collector.get_book_rating(list_of_test_books[0]) is None
 
     def test_get_books_with_specific_rating_get_books_with_rating_two(self, collector, list_of_test_books):
 
@@ -63,13 +63,13 @@ class TestBooksCollector:
         collector.add_new_book(list_of_test_books[0])
         collector.add_book_in_favorites(list_of_test_books[0])
 
-        assert len(collector.get_list_of_favorites_books()) == 1
+        assert list_of_test_books[0] in collector.get_list_of_favorites_books()
 
     def test_add_book_in_favorites_book_is_not_in_books_rating(self, collector, list_of_test_books):
 
         collector.add_book_in_favorites(list_of_test_books[0])
 
-        assert len(collector.get_list_of_favorites_books()) == 0
+        assert list_of_test_books[0] not in collector.get_list_of_favorites_books()
 
     def test_delete_book_from_favorites_delete_book(self, collector, list_of_test_books):
 
@@ -77,4 +77,4 @@ class TestBooksCollector:
         collector.add_book_in_favorites(list_of_test_books[0])
         collector.delete_book_from_favorites(list_of_test_books[0])
 
-        assert len(collector.get_list_of_favorites_books()) == 0
+        assert list_of_test_books[0] not in collector.get_list_of_favorites_books()
